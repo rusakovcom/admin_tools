@@ -19,5 +19,5 @@ do
     echo "Logs for $container saved"
 done
 
-# chmod +x get_container_logs.sh
-# ./get_container_logs.sh
+# chmod +x get_all_docker_containers_logs.sh
+# ./get_all_docker_containers_logs.sh
