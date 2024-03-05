@@ -2,7 +2,7 @@
 
 # Specify the time
 start_time="2024-02-13 09:00"
-end_time="2024-02-13 12:00"
+end_time=$(date "+%Y-%m-%d %H:%M") # Up to the current point in time, set other end_time if necessary
 
 # A new directory is created with the name of the instance and the date
 output_directory="$(pwd)/$(hostname -s)_$(date +%Y-%m-%d)_logs"
@@ -19,5 +19,5 @@ do
     echo "Logs for $container saved"
 done
 
-# chmod +x get_container_logs.sh
-# ./get_container_logs.sh
+# chmod +x get_all_docker_containers_logs.sh
+# ./get_all_docker_containers_logs.sh
