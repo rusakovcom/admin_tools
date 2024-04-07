@@ -1,3 +1,6 @@
+# Open-source web service with cloud storage, 'docker-compose up -d' creates 3 containers and site will be available on SEAFILE_SERVER_HOSTNAME with Let's encrypt
+# Official site https://manual.seafile.com/docker/deploy_seafile_with_docker/
+
 services:
   db:
     image: mariadb:10.11
