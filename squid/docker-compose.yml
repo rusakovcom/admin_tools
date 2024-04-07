@@ -1,0 +1,12 @@
+# https://hub.docker.com/r/ubuntu/squid
+
+services:
+  squid-container:
+    image: ubuntu/squid:5.2-22.04_beta
+    container_name: squid-container
+    environment:
+      - TZ=UTC
+    ports:
+      - "3128:3128"
+    volumes:
+      - ./squid_config/squid.conf:/etc/squid/squid.conf
