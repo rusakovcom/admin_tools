@@ -1,6 +1,3 @@
-# Open-source web service with cloud storage, 'docker-compose up -d' creates 3 containers and site will be available on SEAFILE_SERVER_HOSTNAME with Let's encrypt
-# Official site https://manual.seafile.com/docker/deploy_seafile_with_docker/
-
 services:
   db:
     image: mariadb:10.11
@@ -26,17 +23,17 @@ services:
     container_name: seafile
     ports:
       - "80:80"
-      - "443:443"  # Only when https
+      # - "443:443"  # Only when https
     volumes:
       - /opt/seafile-data:/shared   # Requested, specifies the path to Seafile data persistent store.
     environment:
       - DB_HOST=db
       - DB_ROOT_PASSWD=password  # Requested, the value should be root's password of MySQL service.
       - TIME_ZONE=Etc/UTC  # Optional, default is UTC. Should be uncomment and set to your local time zone.
-      - SEAFILE_ADMIN_EMAIL=admin@example.com # Specifies Seafile admin user.
-      - SEAFILE_ADMIN_PASSWORD=password     # Specifies Seafile admin password.
-      - SEAFILE_SERVER_LETSENCRYPT=true   # Whether to use https or not.
-      - SEAFILE_SERVER_HOSTNAME=example.com  # Specifies your host name if https is enabled (URL, don't forget dns records).
+      - SEAFILE_ADMIN_EMAIL=admin@example.com # Specifies Seafile admin user, default is 'me@example.com'.
+      - SEAFILE_ADMIN_PASSWORD=password     # Specifies Seafile admin password, default is 'asecret'.
+      - SEAFILE_SERVER_LETSENCRYPT=false   # Whether to use https or not.
+      - SEAFILE_SERVER_HOSTNAME=<ip_or_domain> # Specifies your host name if https is enabled.
     depends_on:
       - db
       - memcached
