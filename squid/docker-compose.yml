@@ -1,3 +1,5 @@
+# Proxy server in Docker (for example you can work in browser with proxy extensions)
+# Don't forget to specify allowed ip in ./squid_config/squid.conf
 # https://hub.docker.com/r/ubuntu/squid
 
 services:
