@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  minio:
+    container_name: minio
+    image: quay.io/minio/minio:RELEASE.2024-04-06T05-26-02Z.fips
+    restart: always
+
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+    volumes:
+      - ./data:/data
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: changeme
+    command: server /data --console-address ":9001"
+
