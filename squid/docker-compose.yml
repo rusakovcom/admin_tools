@@ -12,3 +12,4 @@ services:
       - "3128:3128"
     volumes:
       - ./squid_config/squid.conf:/etc/squid/squid.conf
+    restart: always
