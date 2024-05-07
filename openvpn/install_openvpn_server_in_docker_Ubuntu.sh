@@ -1,19 +1,18 @@
 #!/bin/bash
 # apt update -y && apt install -y docker.io docker-compose
 
-# Create directory for OpenVPN configuration
+# create directory for OpenVPN configuration
 mkdir -p /opt/openvpn
 
-# Run OpenVPN container with volume mounted
-docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://93.183.74.90
+# run OpenVPN temporary containers with volume mounted for generating configurations
+docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://109.207.171.88
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
-docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full myclient nopass
+docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full myclient
 
-# Start OpenVPN server container in detached mode
-docker run -v /opt/openvpn:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn
+# start OpenVPN server container in detached mode
+docker run --name=openvpn -v /opt/openvpn:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn
 
-# Export client configuration
+# export client configuration .ovpn file
 docker run -v /opt/openvpn:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient myclient > myclient.ovpn
 
-echo "OpenVPN setup complete."
-
+# Client software for connection: https://openvpn.net/client/
