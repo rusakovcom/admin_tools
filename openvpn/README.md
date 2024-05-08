@@ -10,7 +10,9 @@ mkdir -p /opt/openvpn
 
 # Run OpenVPN container with volume mounted
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://<IP>
+
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
+
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full myclient
 
 # Start OpenVPN server container in detached mode
