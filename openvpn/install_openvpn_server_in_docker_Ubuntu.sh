@@ -5,7 +5,7 @@
 mkdir -p /opt/openvpn
 
 # run OpenVPN temporary containers with volume mounted for generating configurations
-docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://109.207.171.88
+docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://<ip of vpn server>
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn easyrsa build-client-full myclient
 
