@@ -9,7 +9,7 @@ apt update -y && apt install -y docker.io docker-compose
 mkdir -p /opt/openvpn
 
 # Run OpenVPN container with volume mounted
-docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://<IP>
+docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_genconfig -u udp://<ip>
 
 docker run -v /opt/openvpn:/etc/openvpn --rm -it kylemanna/openvpn ovpn_initpki
 
