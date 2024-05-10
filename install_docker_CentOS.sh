@@ -1,6 +1,6 @@
 #!/bin/bash
 # CentOS, Oracle Linux
-# wget https://raw.githubusercontent.com/rusakovcom/docker/main/install_docker_CentOS.sh
+# wget https://raw.githubusercontent.com/rusakovcom/docker/main/install_docker_CentOS.sh && chmod +x install_docker_CentOS.sh && bash install_docker_CentOS.sh 
 
 # install dependencies
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
