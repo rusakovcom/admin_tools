@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ubuntu 
-# wget https://raw.githubusercontent.com/rusakovcom/docker/main/install_docker_Ubuntu.sh
+# wget https://raw.githubusercontent.com/rusakovcom/docker/main/install_docker_Ubuntu.sh && chmod +x install_docker_Ubuntu.sh && bash install_docker_Ubuntu.sh
 
 sudo apt update
 # install necessary dependencies
