@@ -1,5 +1,6 @@
 #!/bin/bash
 # The script allows you to get a directory with logs of all docker containers on the host, docker logs from start_time= to end_time=
+# curl -O https://raw.githubusercontent.com/rusakovcom/docker/main/get_all_docker_containers_logs.sh
 
 # Specify the time
 start_time="2024-02-13 09:00"
