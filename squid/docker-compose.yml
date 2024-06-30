@@ -1,6 +1,7 @@
-# Proxy server in Docker (for example you can work in browser with proxy extensions)
+# Proxy server in Docker (for example you can work in browser with proxy extensions) https://hub.docker.com/r/ubuntu/squid
 # Don't forget to specify allowed ip in ./squid_config/squid.conf
-# https://hub.docker.com/r/ubuntu/squid
+# passwd - file with login and encrypted password for connection to proxy, you can configure login and password:
+# sudo apt-get install apache2-utils && sudo htpasswd -c ./passwd yourusername
 
 services:
   squid-container:
@@ -12,4 +13,5 @@ services:
       - "3128:3128"
     volumes:
       - ./squid.conf:/etc/squid/squid.conf
+      - ./passwd:/etc/squid/passwd
     restart: always
