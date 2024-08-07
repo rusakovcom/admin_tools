@@ -20,3 +20,12 @@ docker run --name openvpn -v /opt/openvpn:/etc/openvpn -d -p 1194:1194/udp --cap
 
 # Export client configuration
 docker run -v /opt/openvpn:/etc/openvpn --rm kylemanna/openvpn ovpn_getclient myclient > myclient.ovpn
+
+
+
+
+# P.S.
+For RHEL Linux (Oracle) it may be the error below and you need to install loadable kernel modules (dnf install iptables kernel-modules)
+docker run --privileged --name openvpn -v /opt/openvpn:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN kylemanna/openvpn
+modprobe: can't change directory to '/lib/modules': No such file or directory
+iptables v1.8.4 (legacy): can't initialize iptables table nat': Table does not exist (do you need to insmod?)
