@@ -23,3 +23,7 @@ done
 
 # chmod +x get_all_docker_containers_logs.sh
 # ./get_all_docker_containers_logs.sh
+
+# Or get logs without this script in two commands:
+# mkdir logs-"$(hostname -s)-$(date +%Y-%m-%d)"
+# docker ps -a --format '{{.Names}}' | xargs -I {} sh -c 'docker logs --since "1h" {} > {}.log 2>&1'
